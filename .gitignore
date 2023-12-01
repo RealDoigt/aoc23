@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/aoc-2023
+aoc-2023.so
+aoc-2023.dylib
+aoc-2023.dll
+aoc-2023.a
+aoc-2023.lib
+aoc-2023-test-*
+*.exe
+*.o
+*.obj
+*.lst
