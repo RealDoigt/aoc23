@@ -3,6 +3,9 @@
 		"doigt"
 	],
 	"copyright": "Copyright © 2023, doigt",
+	"dependencies": {
+		"dasfor": "~>1.0.0"
+	},
 	"description": "advent of code 2023",
 	"license": "mit",
 	"name": "aoc-2023"
