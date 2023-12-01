@@ -1,4 +1,5 @@
 module day1.main;
+import std.regex;
 import std.conv;
 import common;
 
@@ -26,26 +27,27 @@ auto sum(Pair[] pairs)
     return total;
 }
 
-void day1Main()
+auto getPairs(string[] lines, bool replaceWords = false)
 {
-    auto lines = "res/day1/input".readText.split("\n");
     Pair[] pairs;
-    auto spelledOutNums =
-    [
-        "one"   : 1,
-        "two"   : 2,
-        "three" : 3,
-        "four"  : 4,
-        "five"  : 5,
-        "six"   : 6,
-        "seven" : 7,
-        "eight" : 8,
-        "nine"  : 9
-    ];
     
     foreach(line; lines)
     {
         if (line.length == 0) continue;
+        
+        if (replaceWords) 
+        { 
+            line = line.replaceAll("one".regex  , "1");
+            line = line.replaceAll("two".regex  , "2");
+            line = line.replaceAll("three".regex, "3");
+            line = line.replaceAll("four".regex , "4");
+            line = line.replaceAll("five".regex , "5");
+            line = line.replaceAll("six".regex  , "6");
+            line = line.replaceAll("seven".regex, "7");
+            line = line.replaceAll("eight".regex, "8");
+            line = line.replaceAll("nine".regex , "9");
+            //line = line.replaceAll("zero".regex , "0");
+        }
         
         auto p = Pair();
         
@@ -59,5 +61,13 @@ void day1Main()
         pairs ~= p;
     }
     
-    "The sum of all calibration values is %d".writefln(pairs.sum);
+    return pairs;
+}
+
+void day1Main()
+{
+    auto lines = "res/day1/input".readText.split("\n");
+    
+    "The wrong sum of all calibration values is %d".writefln(getPairs(lines).sum);
+    "The correct sum of all calibration values is %d".writefln(getPairs(lines, true).sum);
 }
