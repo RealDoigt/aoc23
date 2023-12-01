@@ -12,7 +12,7 @@ struct Pair
             return 0;
             
         if (b == '\0') 
-            return "$0".dasformat(a).to!int;
+            return "$0$0".dasformat(a).to!int;
         
         return "$0$1".dasformat(a, b).to!int;
     }
