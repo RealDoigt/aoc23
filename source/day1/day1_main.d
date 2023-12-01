@@ -57,7 +57,8 @@ auto getPairs(string[] lines, bool replaceWords = false)
                 if (p.a == '\0') p.a = c;
                 else p.b = c;
             }
-            
+        
+        if (replaceWords) writeln(p);
         pairs ~= p;
     }
     
@@ -66,7 +67,7 @@ auto getPairs(string[] lines, bool replaceWords = false)
 
 void day1Main()
 {
-    auto lines = "res/day1/input".readText.split("\n");
+    auto lines = "res/day1/sample2".readText.split("\n");
     
     "The wrong sum of all calibration values is %d".writefln(getPairs(lines).sum);
     "The correct sum of all calibration values is %d".writefln(getPairs(lines, true).sum);
